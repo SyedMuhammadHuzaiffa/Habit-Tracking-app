@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -109,7 +110,18 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      bottomNavigationBar:
+          BottomNavigationBar(type: BottomNavigationBarType.fixed, items: const <
+              BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(Icons.track_changes_outlined), label: 'Tracker'),
+        BottomNavigationBarItem(icon: Icon(Icons.abc_outlined), label: 'Goal'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.access_alarm_outlined), label: 'motivation'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline), label: 'Person'),
+      ]), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
