@@ -3,6 +3,7 @@ import 'package:habit_tracker/pages/tracker.dart';
 import 'package:habit_tracker/pages/goal.dart';
 import 'package:habit_tracker/pages/qoutes.dart';
 import 'package:habit_tracker/pages/person.dart';
+import 'splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Habit Tracker'),
+      home: Splash(),
     );
   }
 }
