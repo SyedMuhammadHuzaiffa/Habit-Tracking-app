@@ -34,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> tabBar = [Tracker(), Goal(), Qoutes(), Person()];
+  List<Widget> tabBar = [TimeTrackerApp(), Goal(), Qoutes(), Person()];
   int currentIndex = 0;
 
   @override

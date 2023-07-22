@@ -12,7 +12,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
       body: Container(
         color: Colors.green,
         child: Center(
-          child: Text("Tracker Page"),
+          child: Text("Splash Screen"),
         ),
       ),
     );
