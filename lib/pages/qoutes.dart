@@ -11,9 +11,6 @@ class Qoutes extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Quotes App',
-      // theme: ThemeData(
-      //   primaryColor: Colors.black,
-      // ),
       home: const MyHomePage(title: 'Quotes App'),
     );
   }
@@ -41,14 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final quote = Quote.quotes[_currentIndex];
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            widget.title,
-            style: TextStyle(fontSize: 30),
-          ),
-          backgroundColor: Colors.black,
-        ),
-        backgroundColor: Color.fromARGB(255, 4, 107, 7),
+        backgroundColor: Color.fromARGB(255, 251, 252, 251),
         drawer: Drawer(
           child: ListView(
             children: [
@@ -61,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'Quotes Categories',
                   style: TextStyle(
                     fontSize: 45,
+                    color: Colors.black,
                     decoration: TextDecoration.underline,
                     fontWeight: FontWeight.w900,
                   ),
@@ -120,19 +111,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
                 const SizedBox(height: 18),
                 Text(
                   quote.author,
                   style: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.yellow,
-                    fontStyle: FontStyle.italic,
-                    decoration: TextDecoration.underline,
-                    decorationColor: Color.fromARGB(255, 185, 21, 9),
-                  ),
+                      fontSize: 32,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.red,
+                      fontStyle: FontStyle.italic,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.yellow),
                 ),
               ],
             ),

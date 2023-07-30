@@ -23,10 +23,26 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: Container(
-        color: Colors.green,
-        child: Center(
-          child: Text("Splash Screen"),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.check_circle_outline,
+              size: 100,
+              color: Colors.white,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Habit Tracker',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );

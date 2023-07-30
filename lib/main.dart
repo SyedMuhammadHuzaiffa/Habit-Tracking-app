@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/pages/tracker.dart';
 import 'package:habit_tracker/pages/goal.dart';
 import 'package:habit_tracker/pages/qoutes.dart';
-import 'package:habit_tracker/pages/person.dart';
+import 'package:habit_tracker/pages/home.dart';
 import 'splash.dart';
 
 void main() {
@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Habit Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark(),
       home: Splash(),
     );
   }
@@ -34,7 +32,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> tabBar = [TimeTrackerApp(), Goal(), Qoutes(), Person()];
+  List<Widget> tabBar = [
+    Home(),
+    TimeTrackerApp(),
+    GoalTrackerApp(),
+    Qoutes(),
+  ];
   int currentIndex = 0;
 
   @override
@@ -42,20 +45,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: tabBar[currentIndex],
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Center(child: Text("Habit Tracker")),
+        backgroundColor: Colors.black,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(
               icon: Icon(Icons.track_changes_outlined), label: 'Tracker'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.abc_outlined), label: 'Goal'),
+              icon: Icon(Icons.punch_clock_outlined), label: 'Goal'),
           BottomNavigationBarItem(
               icon: Icon(Icons.access_alarm_outlined), label: 'motivation'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Person'),
         ],
         onTap: (index) {
           setState(() {

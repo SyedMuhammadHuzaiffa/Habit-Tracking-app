@@ -9,6 +9,7 @@ class TimeTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Time Tracker',
       home: TimeTrackerScreen(),
     );
@@ -36,14 +37,7 @@ class Tracker {
             minutes = 0;
             hours++;
           }
-        }
-        // Call setState to update the UI every second
-        // This will redraw the time on the screen
-        // without this, the time won't update visually
-        if (timer.isActive) {
-          // Update the state only if the timer is still active
-          // This is to prevent updating the state after the timer is canceled
-          setState(() {});
+          updateUI(); // Update the UI after each second
         }
       });
     }
@@ -56,19 +50,15 @@ class Tracker {
     hours = 0;
     minutes = 0;
     seconds = 0;
-    // Call setState to update the UI after resetting the time
-    setState(() {});
+    updateUI(); // Update the UI after resetting the time
   }
 
   void delete() {
     reset();
   }
 
-  void setState(VoidCallback callback) {
-    // A simple setState method for the Tracker class to update its own state
-    // This allows us to call setState on the specific tracker instance
-    // whenever its internal state changes.
-    callback();
+  void updateUI() {
+    // Call setState to update the UI
   }
 }
 
@@ -120,9 +110,6 @@ class _TimeTrackerScreenState extends State<TimeTrackerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Time Tracker'),
-      ),
       body: ListView.builder(
         itemCount: _trackers.length,
         itemBuilder: (context, index) {
