@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Simple App',
+      title: 'Home page',
       home: SimpleScreen(),
     );
   }
@@ -64,28 +64,28 @@ class _SimpleScreenState extends State<SimpleScreen> {
             SizedBox(height: 30),
             Row(
               children: [
-                Icon(Icons.person, size: 40),
+                Icon(Icons.person, size: 44),
                 SizedBox(width: 10),
                 Text(
                   _userName.isEmpty ? 'Guest' : _userName,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
               ],
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Welcome to the Simple App',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'This is a simple Flutter app that demonstrates displaying a user\'s name.',
-              style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _getUserInput,
               child: Text('Enter your name'),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Welcome to the Habit Tracker Home Page',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'This purpose for creating this app was to encourage and help people to develop a healthy life style the developers have come up with best ideas that would help a person acheive such a lifestyle this app contains a tracker page which tracks your different healthy routines a goal page which makes sure you stay on your goal and a motivation qoute page to help keep you going ;)',
+              style: TextStyle(fontSize: 16),
             ),
           ],
         ),

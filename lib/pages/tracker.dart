@@ -110,56 +110,72 @@ class _TimeTrackerScreenState extends State<TimeTrackerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: _trackers.length,
-        itemBuilder: (context, index) {
-          Tracker tracker = _trackers[index];
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Card(
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text('Tracker Name: ${tracker.name}'),
-                    subtitle: Text(
-                        'Time: ${tracker.hours} : ${tracker.minutes} : ${tracker.seconds}'),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          tracker
-                              .start(); // Start the timer for this specific tracker
-                        },
-                        child: Text('Start'),
-                      ),
-                      SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            tracker.reset();
-                          });
-                        },
-                        child: Text('Reset'),
-                      ),
-                      SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            tracker.delete();
-                            _trackers.removeAt(index);
-                          });
-                        },
-                        child: Text('Delete'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              'Your Trackers',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-          );
-        },
+          ),
+          SizedBox(height: 10),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _trackers.length,
+              itemBuilder: (context, index) {
+                Tracker tracker = _trackers[index];
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Card(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('Tracker Name: ${tracker.name}'),
+                          subtitle: Text(
+                              'Time: ${tracker.hours} : ${tracker.minutes} : ${tracker.seconds}'),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                tracker
+                                    .start(); // Start the timer for this specific tracker
+                              },
+                              child: Text('Start'),
+                            ),
+                            SizedBox(width: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  tracker.reset();
+                                });
+                              },
+                              child: Text('Reset'),
+                            ),
+                            SizedBox(width: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  tracker.delete();
+                                  _trackers.removeAt(index);
+                                });
+                              },
+                              child: Text('Delete'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _createAnotherTracker,
